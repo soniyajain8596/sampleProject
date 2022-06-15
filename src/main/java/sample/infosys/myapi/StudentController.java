@@ -1,6 +1,7 @@
 package sample.infosys.myapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ import sample.infosys.myapi.service.StudentServiceInterface;
 @RestController
 @RequestMapping(path = "/student")
 public class StudentController {
+	
+	@Value("${my.greeting}")
+    private String role;
 	
 	@Autowired
 	private StudentServiceInterface serviceInterface;

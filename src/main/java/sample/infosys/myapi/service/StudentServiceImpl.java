@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import sample.infosys.myapi.dao.StudentDaoInterface;
@@ -17,7 +18,12 @@ public class StudentServiceImpl implements StudentServiceInterface{
 	@Autowired
 	@Qualifier("studentDaoInMemory")
 	private StudentDaoInterface studentDao;
-	private static final int STUDENT_ID_LENGTH = 10;
+	
+	@Value("${student.numberOfStudent}")
+	private int STUDENT_ID_LENGTH = 1;
+	
+	@Value("${my.greeting}")
+    private String role;
 	
 	@Override
 	public Student getStudent(Long studentId) throws StudentNotFoundException {

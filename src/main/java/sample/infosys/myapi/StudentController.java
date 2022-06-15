@@ -20,9 +20,7 @@ import sample.infosys.myapi.service.StudentServiceInterface;
 @RestController
 @RequestMapping(path = "/student")
 public class StudentController {
-	
-	@Value("${my.greeting}")
-    private String role;
+
 	
 	@Autowired
 	private StudentServiceInterface serviceInterface;
@@ -42,8 +40,7 @@ public class StudentController {
 	        produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Student> createStudent(@RequestBody StudentInfoInput studentInfo){
 		Student student = serviceInterface.createStudent(studentInfo);
-		return new ResponseEntity<>(student, HttpStatus.OK);
-		
+		return new ResponseEntity<>(student, HttpStatus.OK);		
 	}
 
 }

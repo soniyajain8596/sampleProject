@@ -22,9 +22,6 @@ public class StudentServiceImpl implements StudentServiceInterface{
 	@Value("${student.numberOfStudent}")
 	private int STUDENT_ID_LENGTH = 1;
 	
-	@Value("${my.greeting}")
-    private String role;
-	
 	@Override
 	public Student getStudent(Long studentId) throws StudentNotFoundException {
 		return studentDao.getStudent(studentId);
